@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "author": "Bryan Herdianto",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -31.8, "left": -131.6, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -9.6, "left": 552.04, "attrs": {} },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -414.8,
+      "left": 312.8,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 44.4, "left": -73, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 2.4,
+      "left": 88.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -193,
+      "left": -75,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 129.6,
+      "left": -86.95,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "servo1:GND", "bb1:tn.9", "black", [ "v0" ] ],
+    [ "servo1:V+", "bb1:tp.10", "green", [ "v0" ] ],
+    [ "esp:GND.1", "bb1:bn.50", "black", [ "h-57.45", "v19.2" ] ],
+    [ "esp:5V", "bb1:bp.50", "red", [ "h-67.05", "v-38.4" ] ],
+    [ "bb1:bp.1", "bb1:tp.1", "green", [ "v0" ] ],
+    [ "bb1:tn.2", "bb1:bn.2", "green", [ "v0" ] ],
+    [ "esp:5", "bb1:7b.j", "green", [ "h19.2", "v134.4", "h-9.6" ] ],
+    [ "bb1:24b.j", "bb1:bn.19", "green", [ "v0" ] ],
+    [ "servo1:PWM", "bb1:14t.a", "green", [ "v0" ] ],
+    [ "bb1:14t.e", "bb1:14b.f", "green", [ "v0" ] ],
+    [ "esp:15", "bb1:14b.j", "green", [ "v0", "h9.6", "v57.6", "h-643.2" ] ],
+    [ "esp:12", "bb1:25b.j", "green", [ "v0", "h-431.85" ] ],
+    [ "keypad1:R1", "bb1:55t.a", "green", [ "v0" ] ],
+    [ "keypad1:R2", "bb1:56t.a", "green", [ "v96", "h-0.4" ] ],
+    [ "keypad1:R3", "bb1:57t.a", "green", [ "v0" ] ],
+    [ "keypad1:R4", "bb1:58t.a", "green", [ "v0" ] ],
+    [ "keypad1:C1", "bb1:59t.a", "green", [ "v0" ] ],
+    [ "keypad1:C2", "bb1:60t.a", "green", [ "v0" ] ],
+    [ "keypad1:C3", "bb1:61t.a", "green", [ "v0" ] ],
+    [ "keypad1:C4", "bb1:62t.a", "green", [ "v0" ] ],
+    [ "bb1:58t.e", "esp:25", "green", [ "v0" ] ],
+    [ "bb1:57t.e", "esp:26", "green", [ "v0" ] ],
+    [ "bb1:56t.e", "esp:27", "green", [ "v0" ] ],
+    [ "bb1:55t.e", "esp:14", "green", [ "v0" ] ],
+    [ "bb1:62t.e", "esp:19", "green", [ "v0" ] ],
+    [ "bb1:61t.e", "esp:21", "green", [ "v0" ] ],
+    [ "bb1:60t.e", "esp:22", "green", [ "v0" ] ],
+    [ "bb1:59t.e", "esp:23", "green", [ "v0" ] ],
+    [ "led1:A", "bb1:7b.f", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:6b.f", "", [ "$bb" ] ],
+    [ "bz1:1", "bb1:24b.f", "", [ "$bb" ] ],
+    [ "bz1:2", "bb1:25b.f", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:6b.h", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:bn.4", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
