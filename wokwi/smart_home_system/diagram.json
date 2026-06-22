@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "author": "Bryan Herdianto",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -51.2,
+      "left": 140,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 159.6,
+      "left": -53.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 117.6,
+      "left": -123,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 122.8, "left": 153.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:13", "led1:A", "green", [ "h-14.21", "v38.4" ] ],
+    [ "bz1:2", "esp:25", "green", [ "v0", "h38", "v-96" ] ],
+    [ "servo1:PWM", "esp:26", "green", [ "h0", "v38.6", "h-172.8", "v-115.2" ] ],
+    [ "esp:GND.1", "led1:C", "black", [ "h-4.61", "v57.6", "h-38.4" ] ],
+    [ "bz1:1", "esp:GND.1", "black", [ "v9.6", "h96", "v-57.6" ] ],
+    [ "servo1:GND", "esp:GND.1", "black", [ "h-38.4", "v38.4", "h-115.2", "v-57.6" ] ],
+    [ "esp:5V", "servo1:V+", "red", [ "h4.99", "v19.2", "h124.8", "v-38.4" ] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-28.8", "v230.4", "h-115.2", "v-57.6" ] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h-9.6", "v230.5", "h-124.8", "v-19.2" ] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "h-19.2", "v77" ] ],
+    [ "lcd1:SCL", "esp:22", "green", [ "h-38.4", "v38.7" ] ]
+  ],
+  "dependencies": {}
+}
